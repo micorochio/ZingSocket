@@ -1,4 +1,4 @@
-package com.zc.server.posp.base.annotation;
+package com.zc.server.socket.base.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

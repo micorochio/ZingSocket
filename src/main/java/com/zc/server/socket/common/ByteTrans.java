@@ -1,4 +1,4 @@
-package com.zc.server.posp.common;
+package com.zc.server.socket.common;
 
 
 import org.apache.commons.codec.DecoderException;

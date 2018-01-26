@@ -1,4 +1,4 @@
-package com.zc.server.posp.common;
+package com.zc.server.socket.common;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

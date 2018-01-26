@@ -1,8 +1,8 @@
-package com.zc.server.posp.base.annotation.transfer;
+package com.zc.server.socket.base.annotation.transfer;
 
-import com.zc.server.posp.base.annotation.MessageSlice;
-import com.zc.server.posp.base.exceptions.POSPRunTimeException;
-import com.zc.server.posp.common.ByteTrans;
+import com.zc.server.socket.base.annotation.MessageSlice;
+import com.zc.server.socket.base.exceptions.ServerRunTimeException;
+import com.zc.server.socket.common.ByteTrans;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
@@ -92,13 +92,13 @@ public class DataConverter<T> {
             }
         } catch (IllegalAccessException e) {
             logger.error("初始化异常，类访问失败", e);
-            throw new POSPRunTimeException("字段解析失败！请检查对象的访问权限！", e);
+            throw new ServerRunTimeException("字段解析失败！请检查对象的访问权限！", e);
         } catch (NoSuchMethodException e) {
             logger.error("初始化异常，set方法未找到", e);
-            throw new POSPRunTimeException("字段解析失败！请检查setter方法！", e);
+            throw new ServerRunTimeException("字段解析失败！请检查setter方法！", e);
         } catch (InvocationTargetException e) {
             logger.error("访问对象异常", e);
-            throw new POSPRunTimeException("字段解析失败！", e);
+            throw new ServerRunTimeException("字段解析失败！", e);
         }
         return temp;
 
@@ -123,10 +123,10 @@ public class DataConverter<T> {
             }
         } catch (NoSuchFieldException e) {
             logger.error("字段长度未知！至少需要有有一个len属性和lenRel属性值不为空，len需要有值或lenRef需要制定int型的字段名", e);
-            throw new POSPRunTimeException("字段解析失败！请检查注解@MessageSlice的lenRef字段是否正确！", e);
+            throw new ServerRunTimeException("字段解析失败！请检查注解@MessageSlice的lenRef字段是否正确！", e);
         } catch (IllegalAccessException e) {
             logger.error("字段长度未知！请保证属性的访问权限", e);
-            throw new POSPRunTimeException("字段解析失败！请检查注解@MessageSlice的lenRef字段是否正确！", e);
+            throw new ServerRunTimeException("字段解析失败！请检查注解@MessageSlice的lenRef字段是否正确！", e);
         }
     }
 }
